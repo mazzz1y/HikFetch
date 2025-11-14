@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HikFetch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h1 style="margin: 0;">HikFetch</h1>
+        <div id="userInfo" style="color: white;"></div>
+    </div>
+
+    <div class="card">
+        <h2>Create New Download Task</h2>
+
+        <form id="downloadForm">
+            <div class="form-group">
+                <label for="camera_channel">Camera Channel</label>
+                <input type="number" id="camera_channel" name="camera_channel" value="1" min="1" max="32" required>
+            </div>
+
+            <div class="form-group time-row">
+                <div>
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" required>
+                </div>
+                <div>
+                    <label for="start_time">Start Time</label>
+                    <input type="time" id="start_time" name="start_time" value="00:00" required>
+                </div>
+            </div>
+
+            <div class="form-group time-row">
+                <div>
+                    <label for="end_date">End Date</label>
+                    <input type="date" id="end_date" name="end_date" required>
+                </div>
+                <div>
+                    <label for="end_time">End Time</label>
+                    <input type="time" id="end_time" name="end_time" value="23:59" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Start Download</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>Download Tasks</h2>
+        <div id="taskList" class="task-list"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
